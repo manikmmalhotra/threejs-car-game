@@ -84,6 +84,7 @@ a:visited {
   color: black;
   text-decoration: none;
   cursor: pointer;
+  opacity: 0;
 }
 
 #result-youtube span {
@@ -112,7 +113,6 @@ a:visited {
     display: flex;
   }
 
-  /** Youtube logo by https://codepen.io/alvaromontoro */
   .youtube {
     z-index: 50;
     width: 100px;
@@ -126,6 +126,7 @@ a:visited {
     display: block;
     background: red;
     border-radius: 50% / 11%;
+    opacity: 0;
   }
 
   #results .youtube {
@@ -149,6 +150,7 @@ a:visited {
     width: 112%;
     height: 85%;
     background: red;
+    opacity: 0;
     border-radius: 9% / 50%;
   }
 
@@ -163,6 +165,7 @@ a:visited {
     border: 15px solid transparent;
     box-sizing: border-box;
     border-left: 30px solid white;
+    opacity: 0;
   }
 
   .youtube span {
@@ -180,6 +183,7 @@ a:visited {
     bottom: 42px;
     width: 300px;
     background-color: white;
+    opacity: 0;
     right: 40px;
     padding: 25px 130px 25px 25px;
   }

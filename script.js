@@ -1,31 +1,9 @@
-/*
+window.focus();
 
-Three.js video tutorial explaining the source code
-
-Youtube: https://youtu.be/JhgBwJn1bQw
-
-In the tutorial, we go through the source code of this game. We cover, how to set up a Three.js scene with box objects, how to add lights, how to set up the camera, how to add animation and event handlers. We also add textures with HTML Canvas and learn how to draw 2D shapes in Three.js then how to turn them into extruded geometries.
-
-Comparing to the tutorial this version has some extra features:
-- trucks also pop up on the other track
-- the extruded geometry also has a texture
-- there are trees around the track
-- shadows
-- the game reacts to window resizing
-
-Check out my YouTube channel for other game tutorials: https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ
-
-*/
-
-window.focus(); // Capture keys right away (by default focus is on editor)
-
-// Pick a random value from an array
 function pickRandom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// The Pythagorean theorem says that the distance between two points is
-// the square root of the sum of the horizontal and vertical distance's square
 function getDistance(coordinate1, coordinate2) {
   const horizontalDistance = coordinate2.x - coordinate1.x;
   const verticalDistance = coordinate2.y - coordinate1.y;
@@ -68,8 +46,8 @@ const speed = 0.0017;
 
 const playerAngleInitial = Math.PI;
 let playerAngleMoved;
-let accelerate = false; // Is the player accelerating
-let decelerate = false; // Is the player decelerating
+let accelerate = false;
+let decelerate = false;
 
 let otherVehicles = [];
 let ready;
@@ -108,8 +86,6 @@ setTimeout(() => {
   youtubeLogo.style.opacity = 1;
 }, 4000);
 
-// Initialize ThreeJs
-// Set up camera
 const aspectRatio = window.innerWidth / window.innerHeight;
 const cameraWidth = 960;
 const cameraHeight = cameraWidth / aspectRatio;
@@ -131,9 +107,7 @@ const scene = new THREE.Scene();
 const playerCar = Car();
 scene.add(playerCar);
 
-renderMap(cameraWidth, cameraHeight * 2); // The map height is higher because we look at the map from an angle
-
-// Set up lights
+renderMap(cameraWidth, cameraHeight * 2);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
@@ -149,9 +123,6 @@ dirLight.shadow.camera.bottom = -300;
 dirLight.shadow.camera.near = 100;
 dirLight.shadow.camera.far = 800;
 scene.add(dirLight);
-
-// const cameraHelper = new THREE.CameraHelper(dirLight.shadow.camera);
-// scene.add(cameraHelper);
 
 if (config.grid) {
   const gridHelper = new THREE.GridHelper(80, 8);
